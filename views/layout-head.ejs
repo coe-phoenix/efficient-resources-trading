@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title><%= pageTitle %> | Efficient Resources Trading Sdn. Bhd.</title>
+<meta name="description" content="Malaysia's trusted partner in unvulcanized rubber recycling and sustainable industrial waste management. EU-compliant, Basel B3040 certified.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><div class="nav-logo-icon">ERT</div><div class="nav-logo-text">Efficient Resources<span>Trading Sdn. Bhd.</span></div></a>
+    <button class="mobile-toggle" id="menu-toggle" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/about"<%= currentPath==='/about'?' class="active"':'' %>>About</a></li>
+      <li><a href="/services"<%= currentPath==='/services'?' class="active"':'' %>>Services</a></li>
+      <li><a href="/process"<%= currentPath==='/process'?' class="active"':'' %>>Facility</a></li>
+      <li><a href="/products"<%= currentPath==='/products'?' class="active"':'' %>>Products</a></li>
+      <li><a href="/compliance"<%= currentPath==='/compliance'?' class="active"':'' %>>Compliance</a></li>
+      <li><a href="/contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
