@@ -1,0 +1,12 @@
+{
+  "name": "efficient-resources-trading",
+  "version": "1.0.0",
+  "description": "Efficient Resources Trading Sdn. Bhd. - Corporate Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
