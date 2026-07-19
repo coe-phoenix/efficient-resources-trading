@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Efficient Resources Trading Sdn. Bhd. | Unvulcanized Rubber Recycling Malaysia</title>
 <meta name="description" content="Malaysia's trusted partner in unvulcanized rubber recycling and sustainable industrial waste management. EU-compliant, Basel B3040 certified, ESM-standard operations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,13 +10,15 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--green-900:#0a2e1a;--green-800:#134d2e;--green-700:#1a6b40;--green-600:#22864f;--green-500:#2ba05e;--green-400:#4dbd7a;--green-300:#7dd3a0;--green-200:#b5eacb;--green-100:#e0f7eb;--green-50:#f0fbf5;--dark:#0f1a13;--white:#fff;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;color:var(--gray-800);line-height:1.6;overflow-x:hidden;background:var(--white)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--gray-800);line-height:1.6;overflow-x:hidden;background:var(--white);-webkit-font-smoothing:antialiased}
+
+/* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;transition:all .3s;background:transparent}
 .nav.scrolled{background:rgba(10,46,26,.97);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.3)}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:#fff}
-.nav-logo-icon{width:44px;height:44px;background:var(--green-500);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;color:#fff}
+.nav-logo-icon{width:44px;height:44px;background:var(--green-500);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;color:#fff;flex-shrink:0}
 .nav-logo-text{font-weight:700;font-size:1.1rem;letter-spacing:-.02em}
 .nav-logo-text span{display:block;font-size:.7rem;font-weight:400;color:var(--green-300);letter-spacing:.05em;text-transform:uppercase}
 .nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
@@ -24,19 +26,23 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--gray-800);line-height:
 .nav-links a:hover{color:var(--green-300)}
 .nav-cta{background:var(--green-500);color:#fff!important;padding:.55rem 1.3rem;border-radius:8px;font-weight:600;transition:all .2s!important}
 .nav-cta:hover{background:var(--green-400)!important;transform:translateY(-1px)}
-.mobile-toggle{display:none;background:0 0;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+.mobile-toggle{display:none;background:0 0;border:none;color:#fff;font-size:1.5rem;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:998}
+.nav-overlay.active{display:block}
+
+/* HERO */
 .hero{min-height:100vh;background:linear-gradient(160deg,var(--green-900),var(--dark) 50%,#0d2818);display:flex;align-items:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-50%;right:-30%;width:80%;height:200%;background:radial-gradient(ellipse,rgba(43,160,94,.08),transparent 70%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,#fff,transparent)}
 .hero-inner{max-width:1280px;margin:0 auto;padding:8rem 2rem 6rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(43,160,94,.15);border:1px solid rgba(43,160,94,.3);color:var(--green-300);padding:.4rem 1rem;border-radius:100px;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.5rem}
-.hero-badge::before{content:'';width:8px;height:8px;background:var(--green-400);border-radius:50%;animation:pulse 2s infinite}
+.hero-badge::before{content:'';width:8px;height:8px;background:var(--green-400);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .hero h1{font-size:3.5rem;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.5rem}
 .hero h1 .highlight{background:linear-gradient(135deg,var(--green-400),var(--green-300));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero p{font-size:1.15rem;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:2.5rem;max-width:520px}
 .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:10px;font-size:.95rem;font-weight:600;text-decoration:none;transition:all .25s;border:none;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:10px;font-size:.95rem;font-weight:600;text-decoration:none;transition:all .25s;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .btn-primary{background:var(--green-500);color:#fff}
 .btn-primary:hover{background:var(--green-400);transform:translateY(-2px);box-shadow:0 8px 30px rgba(43,160,94,.3)}
 .btn-outline{background:0 0;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
@@ -46,11 +52,16 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--gray-800);line-height:
 .stat-card:hover{background:rgba(255,255,255,.08);border-color:rgba(43,160,94,.3);transform:translateY(-4px)}
 .stat-number{font-size:2.5rem;font-weight:800;color:var(--green-400);line-height:1;margin-bottom:.5rem}
 .stat-label{font-size:.82rem;color:rgba(255,255,255,.6);font-weight:500;text-transform:uppercase;letter-spacing:.06em}
-section{padding:6rem 2rem}.section-inner{max-width:1280px;margin:0 auto}
+
+/* SECTIONS */
+section{padding:6rem 2rem}
+.section-inner{max-width:1280px;margin:0 auto}
 .section-label{display:inline-flex;align-items:center;gap:.5rem;color:var(--green-600);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
 .section-label::before{content:'';width:24px;height:2px;background:var(--green-500)}
 .section-title{font-size:2.5rem;font-weight:800;color:var(--green-900);letter-spacing:-.03em;margin-bottom:1rem;line-height:1.15}
 .section-desc{font-size:1.05rem;color:var(--gray-500);max-width:600px;line-height:1.7;margin-bottom:3rem}
+
+/* ABOUT */
 .about{background:var(--green-50)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .about-text p{color:var(--gray-600);margin-bottom:1.5rem;line-height:1.8}
@@ -58,6 +69,12 @@ section{padding:6rem 2rem}.section-inner{max-width:1280px;margin:0 auto}
 .about-highlight{background:#fff;border-radius:12px;padding:1.5rem;border:1px solid var(--green-200)}
 .about-highlight h4{color:var(--green-700);font-size:.9rem;font-weight:700;margin-bottom:.3rem}
 .about-highlight p{font-size:.82rem;color:var(--gray-500);margin:0;line-height:1.5}
+.zero-waste-card{background:linear-gradient(135deg,var(--green-700),var(--green-900));border-radius:20px;padding:3rem;color:#fff;text-align:center;width:100%}
+.zero-waste-card .zw-icon{font-size:4rem;margin-bottom:1rem}
+.zero-waste-card h3{font-size:1.6rem;font-weight:800;margin-bottom:1rem}
+.zero-waste-card p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.7}
+
+/* SERVICES */
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
 .service-card{background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:2.5rem 2rem;transition:all .3s;position:relative;overflow:hidden}
 .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green-500),var(--green-300));transform:scaleX(0);transition:transform .3s;transform-origin:left}
@@ -66,6 +83,8 @@ section{padding:6rem 2rem}.section-inner{max-width:1280px;margin:0 auto}
 .service-icon{width:56px;height:56px;background:var(--green-100);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem}
 .service-card h3{font-size:1.15rem;font-weight:700;color:var(--green-900);margin-bottom:.75rem}
 .service-card p{font-size:.9rem;color:var(--gray-500);line-height:1.7}
+
+/* PROCESS */
 .process{background:var(--green-900);color:#fff}
 .process .section-label{color:var(--green-300)}.process .section-title{color:#fff}.process .section-desc{color:rgba(255,255,255,.6)}
 .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
@@ -75,6 +94,8 @@ section{padding:6rem 2rem}.section-inner{max-width:1280px;margin:0 auto}
 .step-num{width:56px;height:56px;background:rgba(43,160,94,.2);border:2px solid var(--green-500);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;color:var(--green-400);margin:0 auto 1.2rem}
 .process-step h4{font-size:1rem;font-weight:700;margin-bottom:.5rem;color:var(--green-200)}
 .process-step p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6}
+
+/* COMPLIANCE */
 .compliance{background:linear-gradient(135deg,var(--green-50),#fff)}
 .compliance-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
 .compliance-card{background:#fff;border:1px solid var(--green-200);border-radius:16px;padding:2.5rem;transition:all .3s}
@@ -85,16 +106,22 @@ section{padding:6rem 2rem}.section-inner{max-width:1280px;margin:0 auto}
 .compliance-card ul{list-style:none;margin-top:1rem}
 .compliance-card ul li{font-size:.85rem;color:var(--gray-600);padding:.4rem 0 .4rem 1.5rem;position:relative}
 .compliance-card ul li::before{content:'\2713';position:absolute;left:0;color:var(--green-500);font-weight:700}
+
+/* WHY US */
 .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
 .why-card{text-align:center;padding:2.5rem 1.5rem;background:#fff;border:1px solid var(--gray-200);border-radius:16px;transition:all .3s}
 .why-card:hover{border-color:var(--green-300);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.06)}
 .why-icon{font-size:2.5rem;margin-bottom:1rem}
 .why-card h4{font-size:1rem;font-weight:700;color:var(--green-900);margin-bottom:.5rem}
 .why-card p{font-size:.85rem;color:var(--gray-500);line-height:1.6}
+
+/* CTA */
 .cta-banner{background:linear-gradient(135deg,var(--green-800),var(--green-900));padding:5rem 2rem;text-align:center}
 .cta-banner h2{font-size:2.5rem;font-weight:800;color:#fff;margin-bottom:1rem;letter-spacing:-.02em}
 .cta-banner p{font-size:1.1rem;color:rgba(255,255,255,.7);max-width:600px;margin:0 auto 2.5rem;line-height:1.7}
 .cta-banner .btn-primary{font-size:1.05rem;padding:1rem 2.5rem}
+
+/* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
 .contact-info h3{font-size:1.4rem;font-weight:700;color:var(--green-900);margin-bottom:1.5rem}
 .contact-details{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2rem}
@@ -106,17 +133,21 @@ section{padding:6rem 2rem}.section-inner{max-width:1280px;margin:0 auto}
 .director-card{background:var(--green-50);border:1px solid var(--green-200);border-radius:12px;padding:1.2rem;text-align:center}
 .director-card h4{font-size:.88rem;font-weight:700;color:var(--green-900);margin-bottom:.2rem}
 .director-card .role{font-size:.72rem;color:var(--green-600);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
-.director-card a{display:block;font-size:.78rem;color:var(--gray-500);text-decoration:none;line-height:1.6}
+.director-card a{display:block;font-size:.78rem;color:var(--gray-500);text-decoration:none;line-height:1.6;padding:.15rem 0}
 .director-card a:hover{color:var(--green-600)}
 .contact-form{background:var(--gray-100);border-radius:16px;padding:2.5rem}
 .contact-form h3{font-size:1.2rem;font-weight:700;color:var(--green-900);margin-bottom:1.5rem}
 .form-group{margin-bottom:1.2rem}
 .form-group label{display:block;font-size:.82rem;font-weight:600;color:var(--gray-700);margin-bottom:.4rem}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--gray-200);border-radius:10px;font-size:.9rem;font-family:inherit;transition:border-color .2s;background:#fff}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--gray-200);border-radius:10px;font-size:16px;font-family:inherit;transition:border-color .2s;background:#fff;-webkit-appearance:none;appearance:none}
+.form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:0;border-color:var(--green-500)}
 .form-group textarea{resize:vertical;min-height:100px}
-.form-submit{width:100%;padding:.85rem;background:var(--green-500);color:#fff;border:none;border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s}
+.form-submit{width:100%;padding:.85rem;background:var(--green-500);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s;min-height:48px;-webkit-tap-highlight-color:transparent}
 .form-submit:hover{background:var(--green-600);transform:translateY(-1px)}
+.form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+/* FOOTER */
 .footer{background:var(--dark);color:rgba(255,255,255,.5);padding:3rem 2rem 1.5rem}
 .footer-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .footer-logo{color:#fff;font-weight:700;font-size:1rem}.footer-logo span{color:var(--green-400)}
@@ -124,16 +155,139 @@ section{padding:6rem 2rem}.section-inner{max-width:1280px;margin:0 auto}
 .footer-links{display:flex;gap:1.5rem}
 .footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.82rem;transition:color .2s}
 .footer-links a:hover{color:var(--green-400)}
-@media(max-width:1024px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero p{margin-left:auto;margin-right:auto}.hero-buttons{justify-content:center}.hero-stats{max-width:450px;margin:2rem auto 0}.services-grid{grid-template-columns:repeat(2,1fr)}.process-steps{grid-template-columns:repeat(2,1fr)}.process-step::after{display:none}.why-grid{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr}}
-@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,46,26,.98);flex-direction:column;padding:1.5rem 2rem;gap:1rem}.nav-links.active{display:flex}.mobile-toggle{display:block}.hero h1{font-size:2.2rem}.stat-number{font-size:1.8rem}.section-title{font-size:1.8rem}.services-grid,.compliance-grid{grid-template-columns:1fr}.process-steps{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.directors-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.cta-banner h2{font-size:1.8rem}}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — TABLET (max 1024px)
+   ═══════════════════════════════════════════ */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero p{margin-left:auto;margin-right:auto}
+  .hero-buttons{justify-content:center}
+  .hero-stats{max-width:450px;margin:2rem auto 0}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .process-steps{grid-template-columns:repeat(2,1fr)}
+  .process-step::after{display:none}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr}
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — MOBILE (max 768px)
+   ═══════════════════════════════════════════ */
+@media(max-width:768px){
+  /* Nav */
+  .nav{padding:.75rem 1rem}
+  .nav-links{display:none;position:fixed;top:0;right:0;bottom:0;width:280px;background:var(--green-900);flex-direction:column;padding:5rem 2rem 2rem;gap:.5rem;z-index:999;box-shadow:-4px 0 20px rgba(0,0,0,.3);transform:translateX(100%);transition:transform .3s ease}
+  .nav-links.active{display:flex;transform:translateX(0)}
+  .nav-links a{font-size:1rem;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav-cta{text-align:center;margin-top:1rem}
+  .mobile-toggle{display:flex}
+
+  /* Hero */
+  .hero{min-height:auto}
+  .hero-inner{padding:6rem 1.25rem 4rem;gap:2rem}
+  .hero h1{font-size:2rem;margin-bottom:1rem}
+  .hero p{font-size:1rem;margin-bottom:1.5rem}
+  .hero-badge{font-size:.7rem;padding:.35rem .8rem}
+  .hero-buttons{flex-direction:column;width:100%}
+  .hero-buttons .btn{justify-content:center;width:100%;padding:.9rem 1.5rem}
+  .hero-stats{gap:1rem}
+  .stat-card{padding:1.25rem}
+  .stat-number{font-size:1.8rem}
+  .stat-label{font-size:.72rem}
+
+  /* Sections */
+  section{padding:3.5rem 1.25rem}
+  .section-title{font-size:1.65rem}
+  .section-desc{font-size:.95rem;margin-bottom:2rem}
+
+  /* About */
+  .about-highlights{grid-template-columns:1fr}
+  .zero-waste-card{padding:2rem}
+  .zero-waste-card .zw-icon{font-size:3rem}
+  .zero-waste-card h3{font-size:1.3rem}
+
+  /* Services */
+  .services-grid{grid-template-columns:1fr;gap:1.25rem}
+  .service-card{padding:2rem 1.5rem}
+
+  /* Process */
+  .process-steps{grid-template-columns:1fr;gap:2rem}
+
+  /* Compliance */
+  .compliance-grid{grid-template-columns:1fr;gap:1.25rem}
+  .compliance-card{padding:1.75rem}
+
+  /* Why Us */
+  .why-grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .why-card{padding:1.75rem 1.25rem}
+
+  /* CTA */
+  .cta-banner{padding:3.5rem 1.25rem}
+  .cta-banner h2{font-size:1.65rem}
+  .cta-banner p{font-size:.95rem}
+  .cta-banner .btn-primary{width:100%;justify-content:center}
+
+  /* Contact */
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .directors-grid{grid-template-columns:1fr;gap:.75rem}
+  .director-card{display:flex;align-items:center;gap:1rem;text-align:left;padding:1rem 1.25rem}
+  .director-card h4{margin-bottom:0}
+  .director-card .role{margin-bottom:0}
+  .director-card .dir-info{flex:1}
+  .director-card .dir-phones{display:flex;gap:.75rem;flex-wrap:wrap}
+  .director-card .dir-phones a{display:inline;font-size:.8rem}
+  .contact-form{padding:1.75rem 1.25rem}
+
+  /* Footer */
+  .footer-inner{flex-direction:column;text-align:center;gap:.75rem}
+  .footer-links{justify-content:center;gap:1.25rem}
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — SMALL PHONES (max 480px)
+   ═══════════════════════════════════════════ */
+@media(max-width:480px){
+  .hero-inner{padding:5.5rem 1rem 3rem}
+  .hero h1{font-size:1.7rem}
+  .hero p{font-size:.9rem}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:.75rem}
+  .stat-card{padding:1rem}
+  .stat-number{font-size:1.5rem}
+  .stat-label{font-size:.68rem}
+
+  section{padding:3rem 1rem}
+  .section-title{font-size:1.45rem}
+  .section-desc{font-size:.88rem}
+
+  .service-card{padding:1.5rem 1.25rem}
+  .compliance-card{padding:1.5rem 1.25rem}
+  .why-grid{grid-template-columns:1fr}
+  .why-card{display:flex;align-items:center;gap:1.25rem;text-align:left;padding:1.5rem}
+  .why-card .why-icon{font-size:2rem;margin-bottom:0;flex-shrink:0}
+  .why-card h4{margin-bottom:.25rem}
+
+  .cta-banner h2{font-size:1.4rem}
+
+  .contact-form{padding:1.5rem 1rem}
+  .form-group input,.form-group select,.form-group textarea{padding:.85rem 1rem}
+}
+
+/* Touch device refinements */
+@media(hover:none){
+  .service-card:hover,.stat-card:hover,.compliance-card:hover,.why-card:hover{transform:none;box-shadow:none}
+  .btn:hover{transform:none}
+}
 </style>
 </head>
 <body>
-<nav class="nav" id="nav"><div class="nav-inner"><a href="#" class="nav-logo"><div class="nav-logo-icon">ERT</div><div class="nav-logo-text">Efficient Resources<span>Trading Sdn. Bhd.</span></div></a><button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">&#9776;</button><ul class="nav-links"><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#compliance">Compliance</a></li><li><a href="#contact" class="nav-cta">Contact Us</a></li></ul></div></nav>
+
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="nav" id="nav"><div class="nav-inner"><a href="#" class="nav-logo"><div class="nav-logo-icon">ERT</div><div class="nav-logo-text">Efficient Resources<span>Trading Sdn. Bhd.</span></div></a><button class="mobile-toggle" id="menu-toggle" aria-label="Menu">&#9776;</button><ul class="nav-links" id="nav-links"><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#compliance">Compliance</a></li><li><a href="#contact" class="nav-cta">Contact Us</a></li></ul></div></nav>
 
 <section class="hero"><div class="hero-inner"><div><div class="hero-badge">Basel B3040 Certified &#8226; EU Export Ready</div><h1>Transforming Rubber Waste Into <span class="highlight">Sustainable Value</span></h1><p>Malaysia's trusted partner in unvulcanized rubber recycling. We deliver environmentally sound management of industrial rubber scrap for the global tire and rubber industry.</p><div class="hero-buttons"><a href="#contact" class="btn btn-primary">Get a Quote &#8594;</a><a href="#services" class="btn btn-outline">Our Services</a></div></div><div class="hero-stats"><div class="stat-card"><div class="stat-number">10K+</div><div class="stat-label">Metric Tons Processed Yearly</div></div><div class="stat-card"><div class="stat-number">15+</div><div class="stat-label">Years Industry Experience</div></div><div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Export Markets Served</div></div><div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">ESM Compliant Operations</div></div></div></div></section>
 
-<section class="about" id="about"><div class="section-inner"><div class="about-grid"><div class="about-text"><div class="section-label">About Us</div><h2 class="section-title">Your Circular Economy Partner in Southeast Asia</h2><p>Efficient Resources Trading Sdn. Bhd. (Reg. 1162913-D) is a Malaysian-based industrial rubber recycling and trading company headquartered in Kamunting Industrial Estate, Perak. We specialize in the collection, processing, and responsible export of unvulcanized rubber scrap (Basel Code B3040) sourced from tire manufacturing plants across the region.</p><p>Our operations are built on the principles of Environmentally Sound Management (ESM) as defined by the Basel Convention, ensuring every kilogram of rubber scrap we handle is processed, tracked, and shipped to the highest international standards. We are fully prepared for the EU's new Waste Shipment Regulation (2024/1157) transition, including mandatory DIWASS digital filing and facility audit requirements.</p><div class="about-highlights"><div class="about-highlight"><h4>SIRIM Certified</h4><p>Holding valid SIRIM Certificate of Approval for rubber scrap processing</p></div><div class="about-highlight"><h4>MITI Licensed</h4><p>Full MITI export/import permits for international waste trade</p></div><div class="about-highlight"><h4>Basel B3040</h4><p>Classified strictly under unvulcanized rubber, not plastic waste</p></div><div class="about-highlight"><h4>ESM Standards</h4><p>Operations meeting EU Environmentally Sound Management criteria</p></div></div></div><div style="display:flex;align-items:center;justify-content:center"><div style="background:linear-gradient(135deg,var(--green-700),var(--green-900));border-radius:20px;padding:3rem;color:#fff;text-align:center;width:100%"><div style="font-size:4rem;margin-bottom:1rem">&#9851;</div><h3 style="font-size:1.6rem;font-weight:800;margin-bottom:1rem">Zero Waste Policy</h3><p style="font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.7">Every piece of unvulcanized rubber scrap is given a second life. Our closed-loop process ensures nothing goes to landfill &#8212; only back into the circular economy.</p></div></div></div></div></section>
+<section class="about" id="about"><div class="section-inner"><div class="about-grid"><div class="about-text"><div class="section-label">About Us</div><h2 class="section-title">Your Circular Economy Partner in Southeast Asia</h2><p>Efficient Resources Trading Sdn. Bhd. (Reg. 1162913-D) is a Malaysian-based industrial rubber recycling and trading company headquartered in Kamunting Industrial Estate, Perak. We specialize in the collection, processing, and responsible export of unvulcanized rubber scrap (Basel Code B3040) sourced from tire manufacturing plants across the region.</p><p>Our operations are built on the principles of Environmentally Sound Management (ESM) as defined by the Basel Convention, ensuring every kilogram of rubber scrap we handle is processed, tracked, and shipped to the highest international standards. We are fully prepared for the EU's new Waste Shipment Regulation (2024/1157) transition, including mandatory DIWASS digital filing and facility audit requirements.</p><div class="about-highlights"><div class="about-highlight"><h4>SIRIM Certified</h4><p>Holding valid SIRIM Certificate of Approval for rubber scrap processing</p></div><div class="about-highlight"><h4>MITI Licensed</h4><p>Full MITI export/import permits for international waste trade</p></div><div class="about-highlight"><h4>Basel B3040</h4><p>Classified strictly under unvulcanized rubber, not plastic waste</p></div><div class="about-highlight"><h4>ESM Standards</h4><p>Operations meeting EU Environmentally Sound Management criteria</p></div></div></div><div style="display:flex;align-items:center;justify-content:center"><div class="zero-waste-card"><div class="zw-icon">&#9851;</div><h3>Zero Waste Policy</h3><p>Every piece of unvulcanized rubber scrap is given a second life. Our closed-loop process ensures nothing goes to landfill &#8212; only back into the circular economy.</p></div></div></div></div></section>
 
 <section id="services"><div class="section-inner"><div class="section-label">Our Services</div><h2 class="section-title">Comprehensive Rubber Recycling Solutions</h2><p class="section-desc">From collection to export, we handle every stage of the unvulcanized rubber scrap lifecycle with precision and regulatory compliance.</p><div class="services-grid"><div class="service-card"><div class="service-icon">&#9850;</div><h3>Unvulcanized Rubber Collection</h3><p>Direct procurement of uncured rubber scrap from tire plants and rubber manufacturers across Southeast Asia. We handle milling scraps, calender waste, curing rejects, and assembly offcuts.</p></div><div class="service-card"><div class="service-icon">&#9881;</div><h3>Scrap Sorting &amp; Classification</h3><p>Advanced sorting by polymer type (SBR, NR, BR), contaminant level, and grade. All materials are classified under Basel Code B3040 with full traceability documentation.</p></div><div class="service-card"><div class="service-icon">&#128736;</div><h3>Granulation &amp; Milling</h3><p>Industrial granulation to produce uniform rubber granules and crumb. Our milling zone processes scrap into sheets and compounds ready for secondary manufacturing.</p></div><div class="service-card"><div class="service-icon">&#128230;</div><h3>Baling &amp; Packaging</h3><p>Hydraulic baling of processed rubber and steel friction materials into compact, export-ready bales. Optimized for container loading and international shipping.</p></div><div class="service-card"><div class="service-icon">&#127758;</div><h3>International Export</h3><p>EU-compliant export of B3040 unvulcanized rubber scrap to authorized recycling facilities in Europe and OECD nations. Full Annex VII documentation and DIWASS digital filing.</p></div><div class="service-card"><div class="service-icon">&#128196;</div><h3>Compliance Consulting</h3><p>Advisory services for tire plants on waste classification, Basel Convention codes, and EU Waste Shipment Regulation compliance. We help ensure your waste stream avoids the 2026 coding trap.</p></div></div></div></section>
 
@@ -141,18 +295,48 @@ section{padding:6rem 2rem}.section-inner{max-width:1280px;margin:0 auto}
 
 <section class="compliance" id="compliance"><div class="section-inner"><div class="section-label">Regulatory Compliance</div><h2 class="section-title">EU-Ready. Basel-Compliant. Audit-Prepared.</h2><p class="section-desc">We stay ahead of the shifting global regulatory landscape so our partners can trade with confidence.</p><div class="compliance-grid"><div class="compliance-card"><div class="badge">Basel Convention</div><h3>B3040 Classification</h3><p>All our unvulcanized rubber scrap is strictly classified under Basel Code B3040, clearly distancing our products from plastic waste categories (EWC 070213) that face export bans from November 2026.</p><ul><li>Exclusive B3040 coding on all shipments</li><li>Technical data sheets emphasizing rubber composition</li><li>No cross-contamination with plastic waste streams</li></ul></div><div class="compliance-card"><div class="badge">EU WSR 2024/1157</div><h3>DIWASS Digital Ready</h3><p>Our operations are fully prepared for the EU's mandatory DIWASS digital tracking platform launching May 2026. All Annex VII documentation is digitized and audit-ready.</p><ul><li>Digital Annex VII filing capability</li><li>Real-time shipment tracking integration</li><li>Paperless documentation workflow</li></ul></div><div class="compliance-card"><div class="badge">ESM Standards</div><h3>Environmentally Sound Management</h3><p>Our facility operates under the ESM criteria articulated in the Basel Convention's 1994 guidance and 1999 Basel Declaration, including authorized operations, pollution control, and trained personnel.</p><ul><li>Authorized facility with environmental permits</li><li>Pollution monitoring and control systems</li><li>Trained and certified waste handlers</li><li>Cleaner technology integration</li></ul></div><div class="compliance-card"><div class="badge">Malaysia Certifications</div><h3>Local Licensing &amp; Permits</h3><p>We maintain all necessary Malaysian certifications for the legal import, processing, and export of industrial rubber waste, ensuring seamless cross-border compliance.</p><ul><li>SIRIM Certificate of Approval</li><li>MITI import/export permits</li><li>DOE environmental compliance</li><li>Factory license and operating permits</li></ul></div></div></div></section>
 
-<section><div class="section-inner"><div style="text-align:center;margin-bottom:3rem"><div class="section-label" style="justify-content:center">Why Choose Us</div><h2 class="section-title" style="margin-left:auto;margin-right:auto">The Efficient Resources Advantage</h2></div><div class="why-grid"><div class="why-card"><div class="why-icon">&#127919;</div><h4>Strategic Location</h4><p>Based in Perak with direct access to Port Klang and Penang Port &#8212; optimized logistics for ASEAN and EU-bound shipments.</p></div><div class="why-card"><div class="why-icon">&#128203;</div><h4>Full Traceability</h4><p>Every batch is tracked from source to destination with unique IDs, digital documentation, and complete chain-of-custody records.</p></div><div class="why-card"><div class="why-icon">&#9878;</div><h4>Regulatory Expertise</h4><p>Deep knowledge of Basel Convention, EU WSR, and Malaysian environmental regulations. We navigate the compliance landscape so you don't have to.</p></div><div class="why-card"><div class="why-icon">&#129309;</div><h4>Trusted Partnerships</h4><p>Long-standing relationships with tire manufacturers, recycling facilities, and regulatory bodies across Southeast Asia and Europe.</p></div></div></div></section>
+<section><div class="section-inner"><div style="text-align:center;margin-bottom:3rem"><div class="section-label" style="justify-content:center">Why Choose Us</div><h2 class="section-title" style="margin-left:auto;margin-right:auto">The Efficient Resources Advantage</h2></div><div class="why-grid"><div class="why-card"><div class="why-icon">&#127919;</div><div><h4>Strategic Location</h4><p>Based in Perak with direct access to Port Klang and Penang Port &#8212; optimized logistics for ASEAN and EU-bound shipments.</p></div></div><div class="why-card"><div class="why-icon">&#128203;</div><div><h4>Full Traceability</h4><p>Every batch is tracked from source to destination with unique IDs, digital documentation, and complete chain-of-custody records.</p></div></div><div class="why-card"><div class="why-icon">&#9878;</div><div><h4>Regulatory Expertise</h4><p>Deep knowledge of Basel Convention, EU WSR, and Malaysian environmental regulations. We navigate the compliance landscape so you don't have to.</p></div></div><div class="why-card"><div class="why-icon">&#129309;</div><div><h4>Trusted Partnerships</h4><p>Long-standing relationships with tire manufacturers, recycling facilities, and regulatory bodies across Southeast Asia and Europe.</p></div></div></div></div></section>
 
 <section class="cta-banner"><h2>Ready for a Sustainable Partnership?</h2><p>Whether you're a tire plant looking to manage rubber waste or a recycler seeking quality B3040 feedstock, we're here to help you meet your circular economy goals.</p><a href="#contact" class="btn btn-primary">Start a Conversation &#8594;</a></section>
 
-<section id="contact"><div class="section-inner"><div class="section-label">Contact Us</div><h2 class="section-title">Let's Discuss Your Requirements</h2><p class="section-desc">Reach out to our directors directly or send us an inquiry through the form.</p><div class="contact-grid"><div class="contact-info"><h3>Our Office</h3><div class="contact-details"><div class="contact-item"><div class="contact-item-icon">&#128205;</div><div class="contact-item-text"><strong>Address</strong>No. 14/5/4, Jalan Perusahaan 3,<br>Kamunting Industrial Estate,<br>34600 Kamunting, Perak, Malaysia</div></div><div class="contact-item"><div class="contact-item-icon">&#9993;</div><div class="contact-item-text"><strong>Email</strong><a href="mailto:efficient1880@gmail.com" style="color:var(--green-600);text-decoration:none">efficient1880@gmail.com</a></div></div><div class="contact-item"><div class="contact-item-icon">&#127970;</div><div class="contact-item-text"><strong>Registration</strong>Company No. 1162913-D</div></div></div><h3 style="margin-bottom:1rem">Our Directors</h3><div class="directors-grid"><div class="director-card"><h4>Ho Wei Yoong</h4><div class="role">Director</div><a href="tel:+60139954934">+6013-995 4934</a><a href="tel:+60122337742">+6012-233 7742</a></div><div class="director-card"><h4>Khor Pea Siang</h4><div class="role">Director</div><a href="tel:+60135188562">+6013-518 8562</a><a href="tel:+60146000751">+6014-600 0751</a></div><div class="director-card"><h4>Khor Pea Chuan</h4><div class="role">Director</div><a href="tel:+60111093 5549">+6011-1093 5549</a></div></div></div><div class="contact-form"><h3>Send Us an Inquiry</h3><div class="form-group"><label>Full Name</label><input type="text" id="cf-name" placeholder="Your name"></div><div class="form-group"><label>Email Address</label><input type="email" id="cf-email" placeholder="your@email.com"></div><div class="form-group"><label>Company</label><input type="text" id="cf-company" placeholder="Company name"></div><div class="form-group"><label>I'm interested in</label><select id="cf-interest"><option value="">Select a topic</option><option>Selling rubber scrap to you</option><option>Buying processed rubber from you</option><option>Export compliance consulting</option><option>Partnership / Joint Venture</option><option>Other inquiry</option></select></div><div class="form-group"><label>Message</label><textarea id="cf-message" placeholder="Tell us about your requirements..."></textarea></div><button class="form-submit" onclick="handleSubmit()">Send Inquiry &#8594;</button><div id="form-status" style="margin-top:1rem;font-size:.88rem;text-align:center"></div></div></div></div></section>
+<section id="contact"><div class="section-inner"><div class="section-label">Contact Us</div><h2 class="section-title">Let's Discuss Your Requirements</h2><p class="section-desc">Reach out to our directors directly or send us an inquiry through the form.</p><div class="contact-grid"><div class="contact-info"><h3>Our Office</h3><div class="contact-details"><div class="contact-item"><div class="contact-item-icon">&#128205;</div><div class="contact-item-text"><strong>Address</strong>No. 14/5/4, Jalan Perusahaan 3,<br>Kamunting Industrial Estate,<br>34600 Kamunting, Perak, Malaysia</div></div><div class="contact-item"><div class="contact-item-icon">&#9993;</div><div class="contact-item-text"><strong>Email</strong><a href="mailto:efficient1880@gmail.com" style="color:var(--green-600);text-decoration:none">efficient1880@gmail.com</a></div></div><div class="contact-item"><div class="contact-item-icon">&#127970;</div><div class="contact-item-text"><strong>Registration</strong>Company No. 1162913-D</div></div></div><h3 style="margin-bottom:1rem">Our Directors</h3><div class="directors-grid"><div class="director-card"><h4>Ho Wei Yoong</h4><div class="role">Director</div><a href="tel:+60139954934">+6013-995 4934</a><a href="tel:+60122337742">+6012-233 7742</a></div><div class="director-card"><h4>Khor Pea Siang</h4><div class="role">Director</div><a href="tel:+60135188562">+6013-518 8562</a><a href="tel:+60146000751">+6014-600 0751</a></div><div class="director-card"><h4>Khor Pea Chuan</h4><div class="role">Director</div><a href="tel:+60111093 5549">+6011-1093 5549</a></div></div></div><div class="contact-form"><h3>Send Us an Inquiry</h3><div class="form-group"><label>Full Name</label><input type="text" id="cf-name" placeholder="Your name" autocomplete="name"></div><div class="form-group"><label>Email Address</label><input type="email" id="cf-email" placeholder="your@email.com" autocomplete="email"></div><div class="form-group"><label>Company</label><input type="text" id="cf-company" placeholder="Company name" autocomplete="organization"></div><div class="form-group"><label>I'm interested in</label><select id="cf-interest"><option value="">Select a topic</option><option>Selling rubber scrap to you</option><option>Buying processed rubber from you</option><option>Export compliance consulting</option><option>Partnership / Joint Venture</option><option>Other inquiry</option></select></div><div class="form-group"><label>Message</label><textarea id="cf-message" placeholder="Tell us about your requirements..."></textarea></div><button class="form-submit" id="form-btn" onclick="handleSubmit()">Send Inquiry &#8594;</button><div id="form-status" style="margin-top:1rem;font-size:.88rem;text-align:center"></div></div></div></div></section>
 
 <footer class="footer"><div class="footer-inner"><div class="footer-logo">Efficient <span>Resources</span> Trading Sdn. Bhd.</div><div class="footer-links"><a href="#about">About</a><a href="#services">Services</a><a href="#compliance">Compliance</a><a href="#contact">Contact</a></div><div class="footer-copy">&#169; 2026 Efficient Resources Trading Sdn. Bhd. (1162913-D). All rights reserved.</div></div></footer>
 
 <script>
+/* Scroll nav */
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
-function handleSubmit(){var n=document.getElementById('cf-name').value.trim(),e=document.getElementById('cf-email').value.trim(),m=document.getElementById('cf-message').value.trim(),s=document.getElementById('form-status');if(!n||!e||!m){s.style.color='#e74c3c';s.textContent='Please fill in all required fields.';return}var su=encodeURIComponent('Website Inquiry from '+n),b=encodeURIComponent('Name: '+n+'\nEmail: '+e+'\nCompany: '+(document.getElementById('cf-company').value||'N/A')+'\nInterest: '+(document.getElementById('cf-interest').value||'N/A')+'\n\nMessage:\n'+m);window.location.href='mailto:efficient1880@gmail.com?subject='+su+'&body='+b;s.style.color='var(--green-600)';s.textContent='Opening your email client...'}
-document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});document.querySelector('.nav-links').classList.remove('active')})});
+
+/* Mobile menu — slide-in drawer with overlay */
+var menuToggle=document.getElementById('menu-toggle');
+var navLinks=document.getElementById('nav-links');
+var navOverlay=document.getElementById('nav-overlay');
+function closeMenu(){navLinks.classList.remove('active');navOverlay.classList.remove('active');document.body.style.overflow=''}
+function openMenu(){navLinks.classList.add('active');navOverlay.classList.add('active');document.body.style.overflow='hidden'}
+menuToggle.addEventListener('click',function(){navLinks.classList.contains('active')?closeMenu():openMenu()});
+navOverlay.addEventListener('click',closeMenu);
+
+/* Form submission — real API call */
+function handleSubmit(){
+  var n=document.getElementById('cf-name').value.trim();
+  var e=document.getElementById('cf-email').value.trim();
+  var m=document.getElementById('cf-message').value.trim();
+  var s=document.getElementById('form-status');
+  var btn=document.getElementById('form-btn');
+  if(!n||!e||!m){s.style.color='#e74c3c';s.textContent='Please fill in all required fields.';return}
+  btn.disabled=true;btn.textContent='Sending...';s.textContent='';
+  fetch('/api/inquiry',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:n,email:e,company:document.getElementById('cf-company').value,interest:document.getElementById('cf-interest').value,message:m})})
+  .then(function(r){return r.json()})
+  .then(function(d){
+    if(d.success){s.style.color='var(--green-600)';s.textContent=d.message;document.getElementById('cf-name').value='';document.getElementById('cf-email').value='';document.getElementById('cf-company').value='';document.getElementById('cf-interest').selectedIndex=0;document.getElementById('cf-message').value=''}
+    else{s.style.color='#e74c3c';s.textContent=d.error||'Something went wrong.'}
+  })
+  .catch(function(){s.style.color='#e74c3c';s.textContent='Network error. Please email us directly at efficient1880@gmail.com'})
+  .finally(function(){btn.disabled=false;btn.innerHTML='Send Inquiry &#8594;'});
+}
+
+/* Smooth scroll + close menu on nav click */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});closeMenu()})});
 </script>
 </body>
 </html>
